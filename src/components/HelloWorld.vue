@@ -4,7 +4,7 @@
     <button @click="counter.increment">Increment</button>
     <button @click="counter.incrementAsync">
       <!-- {{ counter.chageCount === false ? "Change to True" : "loading....." }} -->
-      {{ counter.chageCount &&  }}
+      {{ counter.chageCount === false ? "Increment Async" : "loading....." }}
     </button>
     <p>Double Count: {{ counter.doubleCount }}</p>
   </div>

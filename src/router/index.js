@@ -13,5 +13,20 @@ const router = createRouter({
     },
   ],
 });
+//路由守卫
+router.beforeEach((to, from, next) => {
+  if (localStorage.getItem("token") === null) {
+    // 如果没有 token，重定向到登录页面
+    if (to.path !== "/login") {
+      return next("/login");
+    }
+  } else {
+    // 如果存在 token，允许访问目标路由
+    next();
+  }
+});
+router.afterEach((to, from) => {
+  // 可以在这里执行一些操作，比如页面跳转后关闭加载动画等
+});
 
 export default router;
